@@ -1,0 +1,28 @@
+name: Tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: python -m pip install cmake==3.31.6 -r requirements.txt
+      - run: cmake --preset release
+      - run: cmake --build --preset release --parallel
+      - run: ctest --preset release
+      - run: python -m pytest
+        env:
+          TENSYS_BIN: ${{ github.workspace }}/build/release/tensys
+      - run: python -m tensys_dse --sim build/release/tensys --suite smoke --out build/smoke
+        env:
+          PYTHONPATH: python

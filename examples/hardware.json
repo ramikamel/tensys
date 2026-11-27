@@ -1,0 +1,20 @@
+{
+  "array": {
+    "rows": 64,
+    "cols": 64,
+    "clock_ghz": 1,
+    "precision": "BF16",
+    "macs_per_pe_per_cycle": 1
+  },
+  "sram": {
+    "layout": "unified",
+    "capacity_bytes": 8388608,
+    "read_gbps": 2048,
+    "write_gbps": 2048
+  },
+  "hbm": {
+    "bandwidth_gbps": 64,
+    "latency_cycles": 200,
+    "buffering": "single"
+  }
+}

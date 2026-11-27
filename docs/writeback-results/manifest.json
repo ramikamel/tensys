@@ -1,0 +1,1163 @@
+{
+  "schema_version": 1,
+  "suite": "writeback",
+  "case_count": 36,
+  "simulator": {
+    "version": "tensys 1.0.0",
+    "binary_sha256": "e424b03690a27b3ad720458170bdc7fdfd91340ad650615723f228dbb52b8e59",
+    "source_sha256": "0544df486f7e6bc02f5e33f6b5a34320ef7fe1fd5fbb1aa1e0a35df1126e79ff",
+    "git": {
+      "head": "5cc77828cda4cd19bf2d9b5a3563eb5be8c3e6ff",
+      "working_tree_dirty": true
+    }
+  },
+  "host": {
+    "platform": "macOS-27.2.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.11.13",
+    "numpy": "2.2.6",
+    "matplotlib": "3.10.5"
+  },
+  "seconds": {
+    "end_to_end": 0.38116995899326866,
+    "simulate_all_cases": 0.0680959159944905,
+    "largest_case": 0.002792708997731097
+  },
+  "largest_case": {
+    "identifier": "writeback_attention_output_2048_64_ws",
+    "shape": [
+      2048,
+      4096,
+      4096
+    ]
+  },
+  "artifacts": [
+    "raw.json",
+    "metrics.csv",
+    "writeback_latency.png"
+  ],
+  "cases": [
+    {
+      "identifier": "writeback_attention_output_1_32_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        1,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_1_32_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        1,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_1_64_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        1,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_1_64_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        1,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_1_128_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        1,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_1_128_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        1,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_32_32_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        32,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_32_32_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        32,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_32_64_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        32,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_32_64_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        32,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_32_128_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        32,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_32_128_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        32,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_128_32_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_128_32_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_128_64_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_128_64_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_128_128_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_128_128_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_512_32_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_512_32_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_512_64_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_512_64_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_512_128_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_512_128_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_2048_32_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_2048_32_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_2048_64_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_2048_64_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_2048_128_os",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_attention_output_2048_128_ws",
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        512
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_output_heavy_512_32_os",
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "shape": [
+        512,
+        1024,
+        128
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        128
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_output_heavy_512_32_ws",
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "shape": [
+        512,
+        1024,
+        128
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 32,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        128
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_output_heavy_512_64_os",
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "shape": [
+        512,
+        1024,
+        128
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        128
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_output_heavy_512_64_ws",
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "shape": [
+        512,
+        1024,
+        128
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        128
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_output_heavy_512_128_os",
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "shape": [
+        512,
+        1024,
+        128
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        128
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "writeback_output_heavy_512_128_ws",
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "shape": [
+        512,
+        1024,
+        128
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 128,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": [
+        128,
+        256,
+        128
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    }
+  ],
+  "summary": {
+    "median_latency_change_pct": -0.4535991470633735,
+    "improved_cases": 36,
+    "regressed_cases": 0,
+    "tied_cases": 0
+  }
+}

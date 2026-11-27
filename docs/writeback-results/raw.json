@@ -1,0 +1,5225 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 32768,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 1081984,
+          "dma_hidden_cycles": 292608,
+          "dma_timing": {
+            "input_hidden_cycles": 292608,
+            "input_service_cycles": 1078272,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 3712
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 789376,
+          "mac_utilization": 0.0037775941447290755,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 131072,
+              "weights": 33554432
+            },
+            "total_bytes": 68026368,
+            "write": {
+              "activations": 131072,
+              "outputs": 131072,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.015625,
+          "tile_steps": 128,
+          "total_cycles": 1084288,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.02139652933537953,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 1,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_1_32_os",
+        "shape": {
+          "k": 4096,
+          "m": 1,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 32768,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 1081984,
+          "dma_hidden_cycles": 292840,
+          "dma_timing": {
+            "input_hidden_cycles": 292608,
+            "input_service_cycles": 1078272,
+            "output_hidden_cycles": 232,
+            "output_service_cycles": 3712
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 3248,
+            "final_writeback_cycles": 232,
+            "input_cycles": 785664
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 789144,
+          "mac_utilization": 0.003778402591748028,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 131072,
+              "weights": 33554432
+            },
+            "total_bytes": 68026368,
+            "write": {
+              "activations": 131072,
+              "outputs": 131072,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.015625,
+          "tile_steps": 128,
+          "total_cycles": 1084056,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 4096,
+          "dma_cycles": 1081984,
+          "dma_hidden_cycles": 780288,
+          "dma_timing": {
+            "input_hidden_cycles": 780288,
+            "input_service_cycles": 1078272,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 3712
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 301696,
+          "mac_utilization": 0.003764263027879073,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 1048576,
+              "weights": 33554432
+            },
+            "total_bytes": 69861376,
+            "write": {
+              "activations": 131072,
+              "outputs": 1048576,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1088128,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -0.021321021056346312,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 1,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_1_32_ws",
+        "shape": {
+          "k": 4096,
+          "m": 1,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 4096,
+          "dma_cycles": 1081984,
+          "dma_hidden_cycles": 780520,
+          "dma_timing": {
+            "input_hidden_cycles": 780288,
+            "input_service_cycles": 1078272,
+            "output_hidden_cycles": 232,
+            "output_service_cycles": 3712
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 3248,
+            "final_writeback_cycles": 232,
+            "input_cycles": 297984
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 301464,
+          "mac_utilization": 0.0037650657783464595,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 1048576,
+              "weights": 33554432
+            },
+            "total_bytes": 69861376,
+            "write": {
+              "activations": 131072,
+              "outputs": 1048576,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1087896,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 32768,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 555392,
+          "dma_hidden_cycles": 292608,
+          "dma_timing": {
+            "input_hidden_cycles": 292608,
+            "input_service_cycles": 551936,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 3456
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 262784,
+          "mac_utilization": 0.007344503098462245,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 131072,
+              "weights": 33554432
+            },
+            "total_bytes": 68026368,
+            "write": {
+              "activations": 131072,
+              "outputs": 131072,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.015625,
+          "tile_steps": 128,
+          "total_cycles": 557696,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.03873077805829699,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 1,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_1_64_os",
+        "shape": {
+          "k": 4096,
+          "m": 1,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 32768,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 555392,
+          "dma_hidden_cycles": 292824,
+          "dma_timing": {
+            "input_hidden_cycles": 292608,
+            "input_service_cycles": 551936,
+            "output_hidden_cycles": 216,
+            "output_service_cycles": 3456
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 3024,
+            "final_writeback_cycles": 216,
+            "input_cycles": 259328
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 262568,
+          "mac_utilization": 0.007347348783812872,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 131072,
+              "weights": 33554432
+            },
+            "total_bytes": 68026368,
+            "write": {
+              "activations": 131072,
+              "outputs": 131072,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.015625,
+          "tile_steps": 128,
+          "total_cycles": 557480,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 4096,
+          "dma_cycles": 555392,
+          "dma_hidden_cycles": 547624,
+          "dma_timing": {
+            "input_hidden_cycles": 547624,
+            "input_service_cycles": 551936,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 3456
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 7768,
+          "mac_utilization": 0.0051573910853689245,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 1048576,
+              "weights": 33554432
+            },
+            "total_bytes": 69861376,
+            "write": {
+              "activations": 131072,
+              "outputs": 1048576,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 794200,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -0.4079576932762528,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 1,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_1_64_ws",
+        "shape": {
+          "k": 4096,
+          "m": 1,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 4096,
+          "dma_cycles": 555392,
+          "dma_hidden_cycles": 550864,
+          "dma_timing": {
+            "input_hidden_cycles": 547624,
+            "input_service_cycles": 551936,
+            "output_hidden_cycles": 3240,
+            "output_service_cycles": 3456
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 216,
+            "input_cycles": 4312
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 4528,
+          "mac_utilization": 0.005178517244866997,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 1048576,
+              "weights": 33554432
+            },
+            "total_bytes": 69861376,
+            "write": {
+              "activations": 131072,
+              "outputs": 1048576,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 790960,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 32768,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 292096,
+          "dma_hidden_cycles": 286512,
+          "dma_timing": {
+            "input_hidden_cycles": 286512,
+            "input_service_cycles": 288768,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 3328
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 5584,
+          "mac_utilization": 0.0136307970821575,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 131072,
+              "weights": 33554432
+            },
+            "total_bytes": 68026368,
+            "write": {
+              "activations": 131072,
+              "outputs": 131072,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.015625,
+          "tile_steps": 128,
+          "total_cycles": 300496,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.4792077099195996,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 1,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_1_128_os",
+        "shape": {
+          "k": 4096,
+          "m": 1,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 32768,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 292096,
+          "dma_hidden_cycles": 287952,
+          "dma_timing": {
+            "input_hidden_cycles": 284832,
+            "input_service_cycles": 288768,
+            "output_hidden_cycles": 3120,
+            "output_service_cycles": 3328
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 208,
+            "input_cycles": 3936
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 4144,
+          "mac_utilization": 0.013696431437590284,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 131072,
+              "weights": 33554432
+            },
+            "total_bytes": 68026368,
+            "write": {
+              "activations": 131072,
+              "outputs": 131072,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.015625,
+          "tile_steps": 128,
+          "total_cycles": 299056,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 4096,
+          "dma_cycles": 292096,
+          "dma_hidden_cycles": 286512,
+          "dma_timing": {
+            "input_hidden_cycles": 286512,
+            "input_service_cycles": 288768,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 3328
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 5584,
+          "mac_utilization": 0.0051716126946930365,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 1048576,
+              "weights": 33554432
+            },
+            "total_bytes": 69861376,
+            "write": {
+              "activations": 131072,
+              "outputs": 1048576,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 792016,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -0.39393143572857114,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 1,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_1_128_ws",
+        "shape": {
+          "k": 4096,
+          "m": 1,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 4096,
+          "dma_cycles": 292096,
+          "dma_hidden_cycles": 289632,
+          "dma_timing": {
+            "input_hidden_cycles": 286512,
+            "input_service_cycles": 288768,
+            "output_hidden_cycles": 3120,
+            "output_service_cycles": 3328
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 208,
+            "input_cycles": 2256
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 33701888,
+            "write": {
+              "activations": 0,
+              "outputs": 16384,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 2464,
+          "mac_utilization": 0.005192065874335781,
+          "sram": {
+            "read": {
+              "activations": 524288,
+              "outputs": 1048576,
+              "weights": 33554432
+            },
+            "total_bytes": 69861376,
+            "write": {
+              "activations": 131072,
+              "outputs": 1048576,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 788896,
+          "useful_macs": 16777216,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 64512,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 1224832,
+          "dma_hidden_cycles": 324104,
+          "dma_timing": {
+            "input_hidden_cycles": 324104,
+            "input_service_cycles": 1205248,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 19584
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 900728,
+          "mac_utilization": 0.1067897251389948,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 4194304,
+              "weights": 33554432
+            },
+            "total_bytes": 96468992,
+            "write": {
+              "activations": 4194304,
+              "outputs": 4194304,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.5,
+          "tile_steps": 128,
+          "total_cycles": 1227384,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.09972429166422245,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 32,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_32_32_os",
+        "shape": {
+          "k": 4096,
+          "m": 32,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 64512,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 1224832,
+          "dma_hidden_cycles": 325328,
+          "dma_timing": {
+            "input_hidden_cycles": 324104,
+            "input_service_cycles": 1205248,
+            "output_hidden_cycles": 1224,
+            "output_service_cycles": 19584
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 17136,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 881144
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 899504,
+          "mac_utilization": 0.10689632674365498,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 4194304,
+              "weights": 33554432
+            },
+            "total_bytes": 96468992,
+            "write": {
+              "activations": 4194304,
+              "outputs": 4194304,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.5,
+          "tile_steps": 128,
+          "total_cycles": 1226160,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 131072,
+          "dma_cycles": 1224832,
+          "dma_hidden_cycles": 906272,
+          "dma_timing": {
+            "input_hidden_cycles": 906272,
+            "input_service_cycles": 1205248,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 19584
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 318560,
+          "mac_utilization": 0.10639237382789163,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 33554432,
+              "weights": 33554432
+            },
+            "total_bytes": 155189248,
+            "write": {
+              "activations": 4194304,
+              "outputs": 33554432,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1231968,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -0.09935322995402478,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 32,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_32_32_ws",
+        "shape": {
+          "k": 4096,
+          "m": 32,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 131072,
+          "dma_cycles": 1224832,
+          "dma_hidden_cycles": 907496,
+          "dma_timing": {
+            "input_hidden_cycles": 906272,
+            "input_service_cycles": 1205248,
+            "output_hidden_cycles": 1224,
+            "output_service_cycles": 19584
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 17136,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 298976
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 317336,
+          "mac_utilization": 0.10649818321275586,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 33554432,
+              "weights": 33554432
+            },
+            "total_bytes": 155189248,
+            "write": {
+              "activations": 4194304,
+              "outputs": 33554432,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1230744,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 64512,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 626816,
+          "dma_hidden_cycles": 324104,
+          "dma_timing": {
+            "input_hidden_cycles": 324104,
+            "input_service_cycles": 615424,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 11392
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 302712,
+          "mac_utilization": 0.20825971450725173,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 4194304,
+              "weights": 33554432
+            },
+            "total_bytes": 96468992,
+            "write": {
+              "activations": 4194304,
+              "outputs": 4194304,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.5,
+          "tile_steps": 128,
+          "total_cycles": 629368,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.11312936151822145,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 32,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_32_64_os",
+        "shape": {
+          "k": 4096,
+          "m": 32,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 64512,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 626816,
+          "dma_hidden_cycles": 324816,
+          "dma_timing": {
+            "input_hidden_cycles": 324104,
+            "input_service_cycles": 615424,
+            "output_hidden_cycles": 712,
+            "output_service_cycles": 11392
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 9968,
+            "final_writeback_cycles": 712,
+            "input_cycles": 291320
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 302000,
+          "mac_utilization": 0.20849558423048536,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 4194304,
+              "weights": 33554432
+            },
+            "total_bytes": 96468992,
+            "write": {
+              "activations": 4194304,
+              "outputs": 4194304,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.5,
+          "tile_steps": 128,
+          "total_cycles": 628656,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 131072,
+          "dma_cycles": 626816,
+          "dma_hidden_cycles": 610616,
+          "dma_timing": {
+            "input_hidden_cycles": 610616,
+            "input_service_cycles": 615424,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 11392
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 16200,
+          "mac_utilization": 0.1409970654297295,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 33554432,
+              "weights": 33554432
+            },
+            "total_bytes": 155189248,
+            "write": {
+              "activations": 4194304,
+              "outputs": 33554432,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 929608,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -1.1488713522258844,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 32,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_32_64_ws",
+        "shape": {
+          "k": 4096,
+          "m": 32,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 131072,
+          "dma_cycles": 626816,
+          "dma_hidden_cycles": 621296,
+          "dma_timing": {
+            "input_hidden_cycles": 610616,
+            "input_service_cycles": 615424,
+            "output_hidden_cycles": 10680,
+            "output_service_cycles": 11392
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 712,
+            "input_cycles": 4808
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 5520,
+          "mac_utilization": 0.14263576689359775,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 33554432,
+              "weights": 33554432
+            },
+            "total_bytes": 155189248,
+            "write": {
+              "activations": 4194304,
+              "outputs": 33554432,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 918928,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 64512,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 327808,
+          "dma_hidden_cycles": 318008,
+          "dma_timing": {
+            "input_hidden_cycles": 318008,
+            "input_service_cycles": 320512,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 7296
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 9800,
+          "mac_utilization": 0.38956654064721685,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 4194304,
+              "weights": 33554432
+            },
+            "total_bytes": 96468992,
+            "write": {
+              "activations": 4194304,
+              "outputs": 4194304,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.5,
+          "tile_steps": 128,
+          "total_cycles": 336456,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.4279905842071474,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 32,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_32_128_os",
+        "shape": {
+          "k": 4096,
+          "m": 32,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 64512,
+          "array_waves": 512,
+          "compute_cycles": 262144,
+          "dma_cycles": 327808,
+          "dma_hidden_cycles": 319448,
+          "dma_timing": {
+            "input_hidden_cycles": 312608,
+            "input_service_cycles": 320512,
+            "output_hidden_cycles": 6840,
+            "output_service_cycles": 7296
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 456,
+            "input_cycles": 7904
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 8360,
+          "mac_utilization": 0.3912410153544905,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 4194304,
+              "weights": 33554432
+            },
+            "total_bytes": 96468992,
+            "write": {
+              "activations": 4194304,
+              "outputs": 4194304,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 0.5,
+          "tile_steps": 128,
+          "total_cycles": 335016,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 131072,
+          "dma_cycles": 327808,
+          "dma_hidden_cycles": 318008,
+          "dma_timing": {
+            "input_hidden_cycles": 318008,
+            "input_service_cycles": 320512,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 7296
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 9800,
+          "mac_utilization": 0.14197450628677394,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 33554432,
+              "weights": 33554432
+            },
+            "total_bytes": 155189248,
+            "write": {
+              "activations": 4194304,
+              "outputs": 33554432,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 923208,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -0.7408947929394026,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 32,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_32_128_ws",
+        "shape": {
+          "k": 4096,
+          "m": 32,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 131072,
+          "dma_cycles": 327808,
+          "dma_hidden_cycles": 324848,
+          "dma_timing": {
+            "input_hidden_cycles": 318008,
+            "input_service_cycles": 320512,
+            "output_hidden_cycles": 6840,
+            "output_service_cycles": 7296
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 456,
+            "input_cycles": 2504
+          },
+          "hbm": {
+            "read": {
+              "activations": 4194304,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 38273024,
+            "write": {
+              "activations": 0,
+              "outputs": 524288,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 2960,
+          "mac_utilization": 0.14303423951949434,
+          "sram": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 33554432,
+              "weights": 33554432
+            },
+            "total_bytes": 155189248,
+            "write": {
+              "activations": 4194304,
+              "outputs": 33554432,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 916368,
+          "useful_macs": 536870912,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 194560,
+          "array_waves": 1024,
+          "compute_cycles": 524288,
+          "dma_cycles": 1667200,
+          "dma_hidden_cycles": 713232,
+          "dma_timing": {
+            "input_hidden_cycles": 713232,
+            "input_service_cycles": 1598464,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 68736
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 953968,
+          "mac_utilization": 0.31341641878126464,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 16777216,
+              "weights": 67108864
+            },
+            "total_bytes": 218103808,
+            "write": {
+              "activations": 16777216,
+              "outputs": 16777216,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1672816,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.2568124647301317,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_128_32_os",
+        "shape": {
+          "k": 4096,
+          "m": 128,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 194560,
+          "array_waves": 1024,
+          "compute_cycles": 524288,
+          "dma_cycles": 1667200,
+          "dma_hidden_cycles": 717528,
+          "dma_timing": {
+            "input_hidden_cycles": 713232,
+            "input_service_cycles": 1598464,
+            "output_hidden_cycles": 4296,
+            "output_service_cycles": 68736
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 60144,
+            "final_writeback_cycles": 4296,
+            "input_cycles": 885232
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 949672,
+          "mac_utilization": 0.3142233835974396,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 16777216,
+              "weights": 67108864
+            },
+            "total_bytes": 218103808,
+            "write": {
+              "activations": 16777216,
+              "outputs": 16777216,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1668520,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 524288,
+          "dma_cycles": 1667200,
+          "dma_hidden_cycles": 1296416,
+          "dma_timing": {
+            "input_hidden_cycles": 1296416,
+            "input_service_cycles": 1598464,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 68736
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 370784,
+          "mac_utilization": 0.31255842347240503,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 134217728,
+              "weights": 33554432
+            },
+            "total_bytes": 419430400,
+            "write": {
+              "activations": 16777216,
+              "outputs": 134217728,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1677408,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -0.2561094259714989,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_128_32_ws",
+        "shape": {
+          "k": 4096,
+          "m": 128,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 524288,
+          "dma_cycles": 1667200,
+          "dma_hidden_cycles": 1300712,
+          "dma_timing": {
+            "input_hidden_cycles": 1296416,
+            "input_service_cycles": 1598464,
+            "output_hidden_cycles": 4296,
+            "output_service_cycles": 68736
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 60144,
+            "final_writeback_cycles": 4296,
+            "input_cycles": 302048
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 366488,
+          "mac_utilization": 0.31336097045505623,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 134217728,
+              "weights": 33554432
+            },
+            "total_bytes": 419430400,
+            "write": {
+              "activations": 16777216,
+              "outputs": 134217728,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1673112,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 194560,
+          "array_waves": 1024,
+          "compute_cycles": 524288,
+          "dma_cycles": 848000,
+          "dma_hidden_cycles": 713232,
+          "dma_timing": {
+            "input_hidden_cycles": 713232,
+            "input_service_cycles": 812032,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 35968
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 134768,
+          "mac_utilization": 0.6141965473936758,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 16777216,
+              "weights": 67108864
+            },
+            "total_bytes": 218103808,
+            "write": {
+              "activations": 16777216,
+              "outputs": 16777216,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 853616,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.26335026522464433,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_128_64_os",
+        "shape": {
+          "k": 4096,
+          "m": 128,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 194560,
+          "array_waves": 1024,
+          "compute_cycles": 524288,
+          "dma_cycles": 848000,
+          "dma_hidden_cycles": 715480,
+          "dma_timing": {
+            "input_hidden_cycles": 713232,
+            "input_service_cycles": 812032,
+            "output_hidden_cycles": 2248,
+            "output_service_cycles": 35968
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 31472,
+            "final_writeback_cycles": 2248,
+            "input_cycles": 98800
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 132520,
+          "mac_utilization": 0.6158183065372436,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 16777216,
+              "weights": 67108864
+            },
+            "total_bytes": 218103808,
+            "write": {
+              "activations": 16777216,
+              "outputs": 16777216,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 851368,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 524288,
+          "dma_cycles": 848000,
+          "dma_hidden_cycles": 805688,
+          "dma_timing": {
+            "input_hidden_cycles": 805688,
+            "input_service_cycles": 812032,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 35968
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 42312,
+          "mac_utilization": 0.3886678092956226,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 134217728,
+              "weights": 33554432
+            },
+            "total_bytes": 419430400,
+            "write": {
+              "activations": 16777216,
+              "outputs": 134217728,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1348936,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -2.4997479494950094,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_128_64_ws",
+        "shape": {
+          "k": 4096,
+          "m": 128,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 524288,
+          "dma_cycles": 848000,
+          "dma_hidden_cycles": 839408,
+          "dma_timing": {
+            "input_hidden_cycles": 805688,
+            "input_service_cycles": 812032,
+            "output_hidden_cycles": 33720,
+            "output_service_cycles": 35968
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 2248,
+            "input_cycles": 6344
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 8592,
+          "mac_utilization": 0.3986326200411187,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 134217728,
+              "weights": 33554432
+            },
+            "total_bytes": 419430400,
+            "write": {
+              "activations": 16777216,
+              "outputs": 134217728,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1315216,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 194560,
+          "array_waves": 1024,
+          "compute_cycles": 524288,
+          "dma_cycles": 438400,
+          "dma_hidden_cycles": 415544,
+          "dma_timing": {
+            "input_hidden_cycles": 415544,
+            "input_service_cycles": 418816,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 19584
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 22856,
+          "mac_utilization": 0.7068695867893391,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 16777216,
+              "weights": 67108864
+            },
+            "total_bytes": 218103808,
+            "write": {
+              "activations": 16777216,
+              "outputs": 16777216,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 741704,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -2.4753810145287067,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_128_128_os",
+        "shape": {
+          "k": 4096,
+          "m": 128,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 194560,
+          "array_waves": 1024,
+          "compute_cycles": 524288,
+          "dma_cycles": 438400,
+          "dma_hidden_cycles": 433904,
+          "dma_timing": {
+            "input_hidden_cycles": 415544,
+            "input_service_cycles": 418816,
+            "output_hidden_cycles": 18360,
+            "output_service_cycles": 19584
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 3272
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 4496,
+          "mac_utilization": 0.7248114313521644,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 16777216,
+              "weights": 67108864
+            },
+            "total_bytes": 218103808,
+            "write": {
+              "activations": 16777216,
+              "outputs": 16777216,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 723344,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 524288,
+          "dma_cycles": 438400,
+          "dma_hidden_cycles": 415544,
+          "dma_timing": {
+            "input_hidden_cycles": 415544,
+            "input_service_cycles": 418816,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 19584
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 22856,
+          "mac_utilization": 0.39435568793814124,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 134217728,
+              "weights": 33554432
+            },
+            "total_bytes": 419430400,
+            "write": {
+              "activations": 16777216,
+              "outputs": 134217728,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1329480,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 262144
+        },
+        "latency_change_pct": -1.380991064175467,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_128_128_ws",
+        "shape": {
+          "k": 4096,
+          "m": 128,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 520192,
+          "array_waves": 4096,
+          "compute_cycles": 524288,
+          "dma_cycles": 438400,
+          "dma_hidden_cycles": 433904,
+          "dma_timing": {
+            "input_hidden_cycles": 415544,
+            "input_service_cycles": 418816,
+            "output_hidden_cycles": 18360,
+            "output_service_cycles": 19584
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 3272
+          },
+          "hbm": {
+            "read": {
+              "activations": 16777216,
+              "outputs": 0,
+              "weights": 33554432
+            },
+            "total_bytes": 52428800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 4496,
+          "mac_utilization": 0.39987796692903776,
+          "sram": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 134217728,
+              "weights": 33554432
+            },
+            "total_bytes": 419430400,
+            "write": {
+              "activations": 16777216,
+              "outputs": 134217728,
+              "weights": 33554432
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 128,
+          "total_cycles": 1311120,
+          "useful_macs": 2147483648,
+          "weight_load_cycles": 262144
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 778240,
+          "array_waves": 4096,
+          "compute_cycles": 2097152,
+          "dma_cycles": 6668800,
+          "dma_hidden_cycles": 2869776,
+          "dma_timing": {
+            "input_hidden_cycles": 2869776,
+            "input_service_cycles": 6393856,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 274944
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 3799024,
+          "mac_utilization": 0.3142075651262972,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 67108864,
+              "weights": 268435456
+            },
+            "total_bytes": 872415232,
+            "write": {
+              "activations": 67108864,
+              "outputs": 67108864,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 6674416,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.06436518191254485,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_512_32_os",
+        "shape": {
+          "k": 4096,
+          "m": 512,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 778240,
+          "array_waves": 4096,
+          "compute_cycles": 2097152,
+          "dma_cycles": 6668800,
+          "dma_hidden_cycles": 2874072,
+          "dma_timing": {
+            "input_hidden_cycles": 2869776,
+            "input_service_cycles": 6393856,
+            "output_hidden_cycles": 4296,
+            "output_service_cycles": 274944
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 266352,
+            "final_writeback_cycles": 4296,
+            "input_cycles": 3524080
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 3794728,
+          "mac_utilization": 0.3144099356533316,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 67108864,
+              "weights": 268435456
+            },
+            "total_bytes": 872415232,
+            "write": {
+              "activations": 67108864,
+              "outputs": 67108864,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 6670120,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 2080768,
+          "array_waves": 16384,
+          "compute_cycles": 2097152,
+          "dma_cycles": 6668800,
+          "dma_hidden_cycles": 5216288,
+          "dma_timing": {
+            "input_hidden_cycles": 5216288,
+            "input_service_cycles": 6393856,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 274944
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 1452512,
+          "mac_utilization": 0.3139915388632563,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 536870912,
+              "weights": 134217728
+            },
+            "total_bytes": 1677721600,
+            "write": {
+              "activations": 67108864,
+              "outputs": 536870912,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 6679008,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 1048576
+        },
+        "latency_change_pct": -0.06432092909605738,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_512_32_ws",
+        "shape": {
+          "k": 4096,
+          "m": 512,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 2080768,
+          "array_waves": 16384,
+          "compute_cycles": 2097152,
+          "dma_cycles": 6668800,
+          "dma_hidden_cycles": 5220584,
+          "dma_timing": {
+            "input_hidden_cycles": 5216288,
+            "input_service_cycles": 6393856,
+            "output_hidden_cycles": 4296,
+            "output_service_cycles": 274944
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 266352,
+            "final_writeback_cycles": 4296,
+            "input_cycles": 1177568
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 1448216,
+          "mac_utilization": 0.3141936311259572,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 536870912,
+              "weights": 134217728
+            },
+            "total_bytes": 1677721600,
+            "write": {
+              "activations": 67108864,
+              "outputs": 536870912,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 6674712,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 1048576
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 778240,
+          "array_waves": 4096,
+          "compute_cycles": 2097152,
+          "dma_cycles": 3392000,
+          "dma_hidden_cycles": 2869776,
+          "dma_timing": {
+            "input_hidden_cycles": 2869776,
+            "input_service_cycles": 3248128,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 143872
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 522224,
+          "mac_utilization": 0.6172422074772429,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 67108864,
+              "weights": 268435456
+            },
+            "total_bytes": 872415232,
+            "write": {
+              "activations": 67108864,
+              "outputs": 67108864,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 3397616,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.06616403972667895,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_512_64_os",
+        "shape": {
+          "k": 4096,
+          "m": 512,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 778240,
+          "array_waves": 4096,
+          "compute_cycles": 2097152,
+          "dma_cycles": 3392000,
+          "dma_hidden_cycles": 2872024,
+          "dma_timing": {
+            "input_hidden_cycles": 2869776,
+            "input_service_cycles": 3248128,
+            "output_hidden_cycles": 2248,
+            "output_service_cycles": 143872
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 139376,
+            "final_writeback_cycles": 2248,
+            "input_cycles": 378352
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 519976,
+          "mac_utilization": 0.6176508702444036,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 67108864,
+              "weights": 268435456
+            },
+            "total_bytes": 872415232,
+            "write": {
+              "activations": 67108864,
+              "outputs": 67108864,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 3395368,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 2080768,
+          "array_waves": 16384,
+          "compute_cycles": 2097152,
+          "dma_cycles": 3392000,
+          "dma_hidden_cycles": 3241784,
+          "dma_timing": {
+            "input_hidden_cycles": 3241784,
+            "input_service_cycles": 3248128,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 143872
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 150216,
+          "mac_utilization": 0.39004358053769667,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 536870912,
+              "weights": 134217728
+            },
+            "total_bytes": 1677721600,
+            "write": {
+              "activations": 67108864,
+              "outputs": 536870912,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 5376712,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 1048576
+        },
+        "latency_change_pct": -2.634026148322618,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_512_64_ws",
+        "shape": {
+          "k": 4096,
+          "m": 512,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 2080768,
+          "array_waves": 16384,
+          "compute_cycles": 2097152,
+          "dma_cycles": 3392000,
+          "dma_hidden_cycles": 3383408,
+          "dma_timing": {
+            "input_hidden_cycles": 3241784,
+            "input_service_cycles": 3248128,
+            "output_hidden_cycles": 141624,
+            "output_service_cycles": 143872
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 2248,
+            "input_cycles": 6344
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 8592,
+          "mac_utilization": 0.40059536726030204,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 536870912,
+              "weights": 134217728
+            },
+            "total_bytes": 1677721600,
+            "write": {
+              "activations": 67108864,
+              "outputs": 536870912,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 5235088,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 1048576
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 778240,
+          "array_waves": 4096,
+          "compute_cycles": 2097152,
+          "dma_cycles": 1753600,
+          "dma_hidden_cycles": 1671992,
+          "dma_timing": {
+            "input_hidden_cycles": 1671992,
+            "input_service_cycles": 1675264,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 78336
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 81608,
+          "mac_utilization": 0.7092160973960094,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 67108864,
+              "weights": 268435456
+            },
+            "total_bytes": 872415232,
+            "write": {
+              "activations": 67108864,
+              "outputs": 67108864,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 2957000,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -2.607778153533987,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_512_128_os",
+        "shape": {
+          "k": 4096,
+          "m": 512,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 778240,
+          "array_waves": 4096,
+          "compute_cycles": 2097152,
+          "dma_cycles": 1753600,
+          "dma_hidden_cycles": 1749104,
+          "dma_timing": {
+            "input_hidden_cycles": 1671992,
+            "input_service_cycles": 1675264,
+            "output_hidden_cycles": 77112,
+            "output_service_cycles": 78336
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 3272
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 4496,
+          "mac_utilization": 0.7282060969037685,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 67108864,
+              "weights": 268435456
+            },
+            "total_bytes": 872415232,
+            "write": {
+              "activations": 67108864,
+              "outputs": 67108864,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 2879888,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 2080768,
+          "array_waves": 16384,
+          "compute_cycles": 2097152,
+          "dma_cycles": 1753600,
+          "dma_hidden_cycles": 1671992,
+          "dma_timing": {
+            "input_hidden_cycles": 1671992,
+            "input_service_cycles": 1675264,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 78336
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 81608,
+          "mac_utilization": 0.39508494935291394,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 536870912,
+              "weights": 134217728
+            },
+            "total_bytes": 1677721600,
+            "write": {
+              "activations": 67108864,
+              "outputs": 536870912,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 5308104,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 1048576
+        },
+        "latency_change_pct": -1.4527221019030523,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_512_128_ws",
+        "shape": {
+          "k": 4096,
+          "m": 512,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 2080768,
+          "array_waves": 16384,
+          "compute_cycles": 2097152,
+          "dma_cycles": 1753600,
+          "dma_hidden_cycles": 1749104,
+          "dma_timing": {
+            "input_hidden_cycles": 1671992,
+            "input_service_cycles": 1675264,
+            "output_hidden_cycles": 77112,
+            "output_service_cycles": 78336
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 3272
+          },
+          "hbm": {
+            "read": {
+              "activations": 67108864,
+              "outputs": 0,
+              "weights": 134217728
+            },
+            "total_bytes": 209715200,
+            "write": {
+              "activations": 0,
+              "outputs": 8388608,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 4496,
+          "mac_utilization": 0.4009090436383768,
+          "sram": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 536870912,
+              "weights": 134217728
+            },
+            "total_bytes": 1677721600,
+            "write": {
+              "activations": 67108864,
+              "outputs": 536870912,
+              "weights": 134217728
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 512,
+          "total_cycles": 5230992,
+          "useful_macs": 8589934592,
+          "weight_load_cycles": 1048576
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 3112960,
+          "array_waves": 16384,
+          "compute_cycles": 8388608,
+          "dma_cycles": 26675200,
+          "dma_hidden_cycles": 11495952,
+          "dma_timing": {
+            "input_hidden_cycles": 11495952,
+            "input_service_cycles": 25575424,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 1099776
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 15179248,
+          "mac_utilization": 0.3144059761890341,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 268435456,
+              "weights": 1073741824
+            },
+            "total_bytes": 3489660928,
+            "write": {
+              "activations": 268435456,
+              "outputs": 268435456,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 26680816,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.016101456567145473,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_2048_32_os",
+        "shape": {
+          "k": 4096,
+          "m": 2048,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 3112960,
+          "array_waves": 16384,
+          "compute_cycles": 8388608,
+          "dma_cycles": 26675200,
+          "dma_hidden_cycles": 11500248,
+          "dma_timing": {
+            "input_hidden_cycles": 11495952,
+            "input_service_cycles": 25575424,
+            "output_hidden_cycles": 4296,
+            "output_service_cycles": 1099776
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 1091184,
+            "final_writeback_cycles": 4296,
+            "input_cycles": 14079472
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 15174952,
+          "mac_utilization": 0.31445660828323935,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 268435456,
+              "weights": 1073741824
+            },
+            "total_bytes": 3489660928,
+            "write": {
+              "activations": 268435456,
+              "outputs": 268435456,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 26676520,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 8323072,
+          "array_waves": 65536,
+          "compute_cycles": 8388608,
+          "dma_cycles": 26675200,
+          "dma_hidden_cycles": 20895776,
+          "dma_timing": {
+            "input_hidden_cycles": 20895776,
+            "input_service_cycles": 25575424,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 1099776
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 5779424,
+          "mac_utilization": 0.3143518735033019,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 2147483648,
+              "weights": 536870912
+            },
+            "total_bytes": 6710886400,
+            "write": {
+              "activations": 268435456,
+              "outputs": 2147483648,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 26685408,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 4194304
+        },
+        "latency_change_pct": -0.016098685843589127,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_2048_32_ws",
+        "shape": {
+          "k": 4096,
+          "m": 2048,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 8323072,
+          "array_waves": 65536,
+          "compute_cycles": 8388608,
+          "dma_cycles": 26675200,
+          "dma_hidden_cycles": 20900072,
+          "dma_timing": {
+            "input_hidden_cycles": 20895776,
+            "input_service_cycles": 25575424,
+            "output_hidden_cycles": 4296,
+            "output_service_cycles": 1099776
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 1091184,
+            "final_writeback_cycles": 4296,
+            "input_cycles": 4679648
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 5775128,
+          "mac_utilization": 0.31440248817215716,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 2147483648,
+              "weights": 536870912
+            },
+            "total_bytes": 6710886400,
+            "write": {
+              "activations": 268435456,
+              "outputs": 2147483648,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 26681112,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 4194304
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 3112960,
+          "array_waves": 16384,
+          "compute_cycles": 8388608,
+          "dma_cycles": 13568000,
+          "dma_hidden_cycles": 11495952,
+          "dma_timing": {
+            "input_hidden_cycles": 11495952,
+            "input_service_cycles": 12992512,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 575488
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 2072048,
+          "mac_utilization": 0.6180083479597478,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 268435456,
+              "weights": 1073741824
+            },
+            "total_bytes": 3489660928,
+            "write": {
+              "activations": 268435456,
+              "outputs": 268435456,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 13573616,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -0.0165615411545457,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_2048_64_os",
+        "shape": {
+          "k": 4096,
+          "m": 2048,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 3112960,
+          "array_waves": 16384,
+          "compute_cycles": 8388608,
+          "dma_cycles": 13568000,
+          "dma_hidden_cycles": 11498200,
+          "dma_timing": {
+            "input_hidden_cycles": 11495952,
+            "input_service_cycles": 12992512,
+            "output_hidden_cycles": 2248,
+            "output_service_cycles": 575488
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 570992,
+            "final_writeback_cycles": 2248,
+            "input_cycles": 1496560
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 2069800,
+          "mac_utilization": 0.6181107166204616,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 268435456,
+              "weights": 1073741824
+            },
+            "total_bytes": 3489660928,
+            "write": {
+              "activations": 268435456,
+              "outputs": 268435456,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 13571368,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 8323072,
+          "array_waves": 65536,
+          "compute_cycles": 8388608,
+          "dma_cycles": 13568000,
+          "dma_hidden_cycles": 12986168,
+          "dma_timing": {
+            "input_hidden_cycles": 12986168,
+            "input_service_cycles": 12992512,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 575488
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 581832,
+          "mac_utilization": 0.3903890465182688,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 2147483648,
+              "weights": 536870912
+            },
+            "total_bytes": 6710886400,
+            "write": {
+              "activations": 268435456,
+              "outputs": 2147483648,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 21487816,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 4194304
+        },
+        "latency_change_pct": -2.667744362665801,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_2048_64_ws",
+        "shape": {
+          "k": 4096,
+          "m": 2048,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 8323072,
+          "array_waves": 65536,
+          "compute_cycles": 8388608,
+          "dma_cycles": 13568000,
+          "dma_hidden_cycles": 13559408,
+          "dma_timing": {
+            "input_hidden_cycles": 12986168,
+            "input_service_cycles": 12992512,
+            "output_hidden_cycles": 573240,
+            "output_service_cycles": 575488
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 2248,
+            "input_cycles": 6344
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 8592,
+          "mac_utilization": 0.40108907778001335,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 2147483648,
+              "weights": 536870912
+            },
+            "total_bytes": 6710886400,
+            "write": {
+              "activations": 268435456,
+              "outputs": 2147483648,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 20914576,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 4194304
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 3112960,
+          "array_waves": 16384,
+          "compute_cycles": 8388608,
+          "dma_cycles": 7014400,
+          "dma_hidden_cycles": 6697784,
+          "dma_timing": {
+            "input_hidden_cycles": 6697784,
+            "input_service_cycles": 6701056,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 313344
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 316616,
+          "mac_utilization": 0.7098051612667394,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 268435456,
+              "weights": 1073741824
+            },
+            "total_bytes": 3489660928,
+            "write": {
+              "activations": 268435456,
+              "outputs": 268435456,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 11818184,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -2.6410148970434038,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_2048_128_os",
+        "shape": {
+          "k": 4096,
+          "m": 2048,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 3112960,
+          "array_waves": 16384,
+          "compute_cycles": 8388608,
+          "dma_cycles": 7014400,
+          "dma_hidden_cycles": 7009904,
+          "dma_timing": {
+            "input_hidden_cycles": 6697784,
+            "input_service_cycles": 6701056,
+            "output_hidden_cycles": 312120,
+            "output_service_cycles": 313344
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 3272
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 4496,
+          "mac_utilization": 0.7290597375436118,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 268435456,
+              "weights": 1073741824
+            },
+            "total_bytes": 3489660928,
+            "write": {
+              "activations": 268435456,
+              "outputs": 268435456,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 11506064,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "attention_output",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 8323072,
+          "array_waves": 65536,
+          "compute_cycles": 8388608,
+          "dma_cycles": 7014400,
+          "dma_hidden_cycles": 6697784,
+          "dma_timing": {
+            "input_hidden_cycles": 6697784,
+            "input_service_cycles": 6701056,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 313344
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 316616,
+          "mac_utilization": 0.39526768633437936,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 2147483648,
+              "weights": 536870912
+            },
+            "total_bytes": 6710886400,
+            "write": {
+              "activations": 268435456,
+              "outputs": 2147483648,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 21222600,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 4194304
+        },
+        "latency_change_pct": -1.4706963331542788,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 512,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_attention_output_2048_128_ws",
+        "shape": {
+          "k": 4096,
+          "m": 2048,
+          "n": 4096
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 8323072,
+          "array_waves": 65536,
+          "compute_cycles": 8388608,
+          "dma_cycles": 7014400,
+          "dma_hidden_cycles": 7009904,
+          "dma_timing": {
+            "input_hidden_cycles": 6697784,
+            "input_service_cycles": 6701056,
+            "output_hidden_cycles": 312120,
+            "output_service_cycles": 313344
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 3272
+          },
+          "hbm": {
+            "read": {
+              "activations": 268435456,
+              "outputs": 0,
+              "weights": 536870912
+            },
+            "total_bytes": 838860800,
+            "write": {
+              "activations": 0,
+              "outputs": 33554432,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 4496,
+          "mac_utilization": 0.40116764416694406,
+          "sram": {
+            "read": {
+              "activations": 1073741824,
+              "outputs": 2147483648,
+              "weights": 536870912
+            },
+            "total_bytes": 6710886400,
+            "write": {
+              "activations": 268435456,
+              "outputs": 2147483648,
+              "weights": 536870912
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 2048,
+          "total_cycles": 20910480,
+          "useful_macs": 34359738368,
+          "weight_load_cycles": 4194304
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 24320,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 108800,
+          "dma_hidden_cycles": 34608,
+          "dma_timing": {
+            "input_hidden_cycles": 34608,
+            "input_service_cycles": 40064,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 68736
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 74192,
+          "mac_utilization": 0.14259852388246763,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 2097152,
+              "weights": 2097152
+            },
+            "total_bytes": 9568256,
+            "write": {
+              "activations": 131072,
+              "outputs": 2097152,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 114896,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -5.048043447987745,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 128,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_output_heavy_512_32_os",
+        "shape": {
+          "k": 128,
+          "m": 512,
+          "n": 1024
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 24320,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 108800,
+          "dma_hidden_cycles": 40408,
+          "dma_timing": {
+            "input_hidden_cycles": 34608,
+            "input_service_cycles": 40064,
+            "output_hidden_cycles": 5800,
+            "output_service_cycles": 68736
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 56888,
+            "final_writeback_cycles": 6048,
+            "input_cycles": 5456
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 68392,
+          "mac_utilization": 0.15017965828261348,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 2097152,
+              "weights": 2097152
+            },
+            "total_bytes": 9568256,
+            "write": {
+              "activations": 131072,
+              "outputs": 2097152,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 109096,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 32000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 16256,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 108800,
+          "dma_hidden_cycles": 34632,
+          "dma_timing": {
+            "input_hidden_cycles": 34632,
+            "input_service_cycles": 40064,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 68736
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 74168,
+          "mac_utilization": 0.1424695652173913,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 4194304,
+              "weights": 1048576
+            },
+            "total_bytes": 12713984,
+            "write": {
+              "activations": 131072,
+              "outputs": 4194304,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 115000,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 8192
+        },
+        "latency_change_pct": -5.126956521739131,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 128,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_output_heavy_512_32_ws",
+        "shape": {
+          "k": 128,
+          "m": 512,
+          "n": 1024
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 16256,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 108800,
+          "dma_hidden_cycles": 40528,
+          "dma_timing": {
+            "input_hidden_cycles": 34632,
+            "input_service_cycles": 40064,
+            "output_hidden_cycles": 5896,
+            "output_service_cycles": 68736
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 56800,
+            "final_writeback_cycles": 6040,
+            "input_cycles": 5432
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 68272,
+          "mac_utilization": 0.15016864642909517,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 4194304,
+              "weights": 1048576
+            },
+            "total_bytes": 12713984,
+            "write": {
+              "activations": 131072,
+              "outputs": 4194304,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 109104,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 8192
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 24320,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 57600,
+          "dma_hidden_cycles": 19896,
+          "dma_timing": {
+            "input_hidden_cycles": 19896,
+            "input_service_cycles": 21632,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 35968
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 37704,
+          "mac_utilization": 0.20895826956433017,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 2097152,
+              "weights": 2097152
+            },
+            "total_bytes": 9568256,
+            "write": {
+              "activations": 131072,
+              "outputs": 2097152,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 78408,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -24.477094174063872,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 128,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_output_heavy_512_64_os",
+        "shape": {
+          "k": 128,
+          "m": 512,
+          "n": 1024
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 24320,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 57600,
+          "dma_hidden_cycles": 39088,
+          "dma_timing": {
+            "input_hidden_cycles": 19896,
+            "input_service_cycles": 21632,
+            "output_hidden_cycles": 19192,
+            "output_service_cycles": 35968
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 14528,
+            "final_writeback_cycles": 2248,
+            "input_cycles": 1736
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 18512,
+          "mac_utilization": 0.276681977843826,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 2097152,
+              "weights": 2097152
+            },
+            "total_bytes": 9568256,
+            "write": {
+              "activations": 131072,
+              "outputs": 2097152,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 59216,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 64000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 16256,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 57600,
+          "dma_hidden_cycles": 19896,
+          "dma_timing": {
+            "input_hidden_cycles": 19896,
+            "input_service_cycles": 21632,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 35968
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 37704,
+          "mac_utilization": 0.20861770398288682,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 4194304,
+              "weights": 1048576
+            },
+            "total_bytes": 12713984,
+            "write": {
+              "activations": 131072,
+              "outputs": 4194304,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 78536,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 8192
+        },
+        "latency_change_pct": -24.579810532749313,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 128,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_output_heavy_512_64_ws",
+        "shape": {
+          "k": 128,
+          "m": 512,
+          "n": 1024
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 16256,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 57600,
+          "dma_hidden_cycles": 39200,
+          "dma_timing": {
+            "input_hidden_cycles": 19896,
+            "input_service_cycles": 21632,
+            "output_hidden_cycles": 19304,
+            "output_service_cycles": 35968
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 14416,
+            "final_writeback_cycles": 2248,
+            "input_cycles": 1736
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 18400,
+          "mac_utilization": 0.27660723933009185,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 4194304,
+              "weights": 1048576
+            },
+            "total_bytes": 12713984,
+            "write": {
+              "activations": 131072,
+              "outputs": 4194304,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 59232,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 8192
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "dataflow": "os",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 24320,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 32000,
+          "dma_hidden_cycles": 11448,
+          "dma_timing": {
+            "input_hidden_cycles": 11448,
+            "input_service_cycles": 12416,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 19584
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 20552,
+          "mac_utilization": 0.26746767663575816,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 2097152,
+              "weights": 2097152
+            },
+            "total_bytes": 9568256,
+            "write": {
+              "activations": 131072,
+              "outputs": 2097152,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 61256,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 0
+        },
+        "latency_change_pct": -29.972574115188717,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 128,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_output_heavy_512_128_os",
+        "shape": {
+          "k": 128,
+          "m": 512,
+          "n": 1024
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 24320,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 32000,
+          "dma_hidden_cycles": 29808,
+          "dma_timing": {
+            "input_hidden_cycles": 11448,
+            "input_service_cycles": 12416,
+            "output_hidden_cycles": 18360,
+            "output_service_cycles": 19584
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 968
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 2192,
+          "mac_utilization": 0.38194703468854907,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 2097152,
+              "weights": 2097152
+            },
+            "total_bytes": 9568256,
+            "write": {
+              "activations": 131072,
+              "outputs": 2097152,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 42896,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 0
+        }
+      }
+    },
+    {
+      "experiment": "writeback",
+      "workload": "output_heavy",
+      "variant": "fixed",
+      "dataflow": "ws",
+      "hardware": {
+        "array": {
+          "accumulator_bytes_per_element": 4,
+          "clock_hz": 1000000000,
+          "cols": 64,
+          "input_bytes_per_element": 2,
+          "macs_per_pe_per_cycle": 1,
+          "peak_macs_per_cycle": 4096,
+          "precision": "BF16",
+          "rows": 64
+        },
+        "hbm": {
+          "bandwidth_bytes_per_second": 128000000000,
+          "buffering": "double",
+          "latency_cycles": 200
+        },
+        "sram": {
+          "capacity_bytes": 8388608,
+          "layout": "unified",
+          "read_bytes_per_second": 2048000000000,
+          "write_bytes_per_second": 2048000000000
+        }
+      },
+      "layer": {
+        "baseline": {
+          "array_fill_drain_cycles": 16256,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 32000,
+          "dma_hidden_cycles": 11448,
+          "dma_timing": {
+            "input_hidden_cycles": 11448,
+            "input_service_cycles": 12416,
+            "output_hidden_cycles": 0,
+            "output_service_cycles": 19584
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 20552,
+          "mac_utilization": 0.2669099439593379,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 4194304,
+              "weights": 1048576
+            },
+            "total_bytes": 12713984,
+            "write": {
+              "activations": 131072,
+              "outputs": 4194304,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 61384,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 8192
+        },
+        "latency_change_pct": -29.91007428645901,
+        "mapping": {
+          "order": "mnk",
+          "tile": {
+            "k": 128,
+            "m": 128,
+            "n": 256
+          }
+        },
+        "name": "writeback_output_heavy_512_128_ws",
+        "shape": {
+          "k": 128,
+          "m": 512,
+          "n": 1024
+        },
+        "writeback": {
+          "array_fill_drain_cycles": 16256,
+          "array_waves": 128,
+          "compute_cycles": 16384,
+          "dma_cycles": 32000,
+          "dma_hidden_cycles": 29808,
+          "dma_timing": {
+            "input_hidden_cycles": 11448,
+            "input_service_cycles": 12416,
+            "output_hidden_cycles": 18360,
+            "output_service_cycles": 19584
+          },
+          "exposed_wait": {
+            "accumulator_bank_cycles": 0,
+            "final_writeback_cycles": 1224,
+            "input_cycles": 968
+          },
+          "hbm": {
+            "read": {
+              "activations": 131072,
+              "outputs": 0,
+              "weights": 1048576
+            },
+            "total_bytes": 3276800,
+            "write": {
+              "activations": 0,
+              "outputs": 2097152,
+              "weights": 0
+            }
+          },
+          "hbm_stall_cycles": 2192,
+          "mac_utilization": 0.3808107103012272,
+          "sram": {
+            "read": {
+              "activations": 2097152,
+              "outputs": 4194304,
+              "weights": 1048576
+            },
+            "total_bytes": 12713984,
+            "write": {
+              "activations": 131072,
+              "outputs": 4194304,
+              "weights": 1048576
+            }
+          },
+          "sram_stall_cycles": 0,
+          "stream_utilization": 1.0,
+          "tile_steps": 16,
+          "total_cycles": 43024,
+          "useful_macs": 67108864,
+          "weight_load_cycles": 8192
+        }
+      }
+    }
+  ]
+}

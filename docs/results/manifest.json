@@ -1,0 +1,3799 @@
+{
+  "schema_version": 1,
+  "suite": "all",
+  "case_count": 138,
+  "simulator": {
+    "version": "tensys 1.0.0",
+    "binary_sha256": "9f6d67060a5068724f3ebe9db0e453427cf336fdea01bc3655868f8e026367db",
+    "source_sha256": "b1437dfc6826c84d3752791339daabae241be1f8e044da2c7d4b3fba62c31752",
+    "git": {
+      "head": "5cc77828cda4cd19bf2d9b5a3563eb5be8c3e6ff",
+      "working_tree_dirty": true
+    }
+  },
+  "host": {
+    "platform": "macOS-27.2.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "python": "3.11.13",
+    "numpy": "2.2.6",
+    "matplotlib": "3.10.5"
+  },
+  "seconds": {
+    "end_to_end": 2.409937958000228,
+    "simulate_all_cases": 1.410586375001003,
+    "largest_case": 0.02276262500527082
+  },
+  "largest_case": {
+    "identifier": "regime_ffn_up_4096_ws",
+    "shape": [
+      4096,
+      14336,
+      4096
+    ]
+  },
+  "artifacts": [
+    "raw.json",
+    "metrics.csv",
+    "01_roofline.png",
+    "02_regime_cycles.png",
+    "03_dataflows.png",
+    "04_buffering.png",
+    "05_array_scaling.png"
+  ],
+  "cases": [
+    {
+      "identifier": "regime_fused_qkv_1_os",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        1,
+        6144,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_fused_qkv_1_ws",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        1,
+        6144,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_attention_output_1_os",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_attention_output_1_ws",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_gate_1_os",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        1,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_gate_1_ws",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        1,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_up_1_os",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        1,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_up_1_ws",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        1,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_down_1_os",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        14336
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_down_1_ws",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        14336
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 1,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_fused_qkv_8_os",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        8,
+        6144,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_fused_qkv_8_ws",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        8,
+        6144,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_attention_output_8_os",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        8,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_attention_output_8_ws",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        8,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_gate_8_os",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        8,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_gate_8_ws",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        8,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_up_8_os",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        8,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_up_8_ws",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        8,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_down_8_os",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        8,
+        4096,
+        14336
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_down_8_ws",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        8,
+        4096,
+        14336
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 8,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_fused_qkv_32_os",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        32,
+        6144,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_fused_qkv_32_ws",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        32,
+        6144,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_attention_output_32_os",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_attention_output_32_ws",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_gate_32_os",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        32,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_gate_32_ws",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        32,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_up_32_os",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        32,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_up_32_ws",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        32,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_down_32_os",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        14336
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_ffn_down_32_ws",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        14336
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "decode",
+      "batch": 32,
+      "sequence_length": 1
+    },
+    {
+      "identifier": "regime_fused_qkv_128_os",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        128,
+        6144,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_fused_qkv_128_ws",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        128,
+        6144,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_attention_output_128_os",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_attention_output_128_ws",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_ffn_gate_128_os",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        128,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_ffn_gate_128_ws",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        128,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_ffn_up_128_os",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        128,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_ffn_up_128_ws",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        128,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_ffn_down_128_os",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        128,
+        4096,
+        14336
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_ffn_down_128_ws",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        128,
+        4096,
+        14336
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 128
+    },
+    {
+      "identifier": "regime_fused_qkv_512_os",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        512,
+        6144,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_fused_qkv_512_ws",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        512,
+        6144,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_attention_output_512_os",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_attention_output_512_ws",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_ffn_gate_512_os",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        512,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_ffn_gate_512_ws",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        512,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_ffn_up_512_os",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        512,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_ffn_up_512_ws",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        512,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_ffn_down_512_os",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        14336
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_ffn_down_512_ws",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        14336
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 512
+    },
+    {
+      "identifier": "regime_fused_qkv_2048_os",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        2048,
+        6144,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_fused_qkv_2048_ws",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        2048,
+        6144,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_attention_output_2048_os",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_attention_output_2048_ws",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_ffn_gate_2048_os",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        2048,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_ffn_gate_2048_ws",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        2048,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_ffn_up_2048_os",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        2048,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_ffn_up_2048_ws",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        2048,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_ffn_down_2048_os",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        14336
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_ffn_down_2048_ws",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        14336
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 2048
+    },
+    {
+      "identifier": "regime_fused_qkv_4096_os",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        4096,
+        6144,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_fused_qkv_4096_ws",
+      "experiment": "regimes",
+      "workload": "fused_qkv",
+      "variant": "auto",
+      "shape": [
+        4096,
+        6144,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_attention_output_4096_os",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        4096,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_attention_output_4096_ws",
+      "experiment": "regimes",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        4096,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_ffn_gate_4096_os",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        4096,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_ffn_gate_4096_ws",
+      "experiment": "regimes",
+      "workload": "ffn_gate",
+      "variant": "auto",
+      "shape": [
+        4096,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_ffn_up_4096_os",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        4096,
+        14336,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_ffn_up_4096_ws",
+      "experiment": "regimes",
+      "workload": "ffn_up",
+      "variant": "auto",
+      "shape": [
+        4096,
+        14336,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_ffn_down_4096_os",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        4096,
+        4096,
+        14336
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "regime_ffn_down_4096_ws",
+      "experiment": "regimes",
+      "workload": "ffn_down",
+      "variant": "auto",
+      "shape": [
+        4096,
+        4096,
+        14336
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": "prefill",
+      "batch": 1,
+      "sequence_length": 4096
+    },
+    {
+      "identifier": "dataflow_tall_skinny_fixed_os",
+      "experiment": "dataflows",
+      "workload": "tall_skinny",
+      "variant": "fixed",
+      "shape": [
+        2048,
+        128,
+        2048
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": [
+        64,
+        64,
+        64
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "dataflow_tall_skinny_fixed_ws",
+      "experiment": "dataflows",
+      "workload": "tall_skinny",
+      "variant": "fixed",
+      "shape": [
+        2048,
+        128,
+        2048
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": [
+        64,
+        64,
+        64
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "dataflow_tall_skinny_auto_os",
+      "experiment": "dataflows",
+      "workload": "tall_skinny",
+      "variant": "auto",
+      "shape": [
+        2048,
+        128,
+        2048
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "dataflow_tall_skinny_auto_ws",
+      "experiment": "dataflows",
+      "workload": "tall_skinny",
+      "variant": "auto",
+      "shape": [
+        2048,
+        128,
+        2048
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "dataflow_square_fixed_os",
+      "experiment": "dataflows",
+      "workload": "square",
+      "variant": "fixed",
+      "shape": [
+        512,
+        512,
+        512
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": [
+        64,
+        64,
+        64
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "dataflow_square_fixed_ws",
+      "experiment": "dataflows",
+      "workload": "square",
+      "variant": "fixed",
+      "shape": [
+        512,
+        512,
+        512
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": [
+        64,
+        64,
+        64
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "dataflow_square_auto_os",
+      "experiment": "dataflows",
+      "workload": "square",
+      "variant": "auto",
+      "shape": [
+        512,
+        512,
+        512
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "dataflow_square_auto_ws",
+      "experiment": "dataflows",
+      "workload": "square",
+      "variant": "auto",
+      "shape": [
+        512,
+        512,
+        512
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_overlap_single",
+      "experiment": "buffering",
+      "workload": "fixed_tile_control",
+      "variant": "single",
+      "shape": [
+        2,
+        4,
+        2
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 2,
+        "cols": 2,
+        "precision": "INT8",
+        "capacity_bytes": 4096,
+        "sram_gbps": 64,
+        "hbm_gbps": 4,
+        "hbm_latency_cycles": 3,
+        "buffering": "single"
+      },
+      "tile": [
+        2,
+        2,
+        2
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_overlap_double",
+      "experiment": "buffering",
+      "workload": "fixed_tile_control",
+      "variant": "double",
+      "shape": [
+        2,
+        4,
+        2
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 2,
+        "cols": 2,
+        "precision": "INT8",
+        "capacity_bytes": 4096,
+        "sram_gbps": 64,
+        "hbm_gbps": 4,
+        "hbm_latency_cycles": 3,
+        "buffering": "double"
+      },
+      "tile": [
+        2,
+        2,
+        2
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_capacity_single",
+      "experiment": "buffering",
+      "workload": "capacity_control",
+      "variant": "single",
+      "shape": [
+        16,
+        16,
+        32
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 4,
+        "cols": 4,
+        "precision": "INT8",
+        "capacity_bytes": 896,
+        "sram_gbps": 64,
+        "hbm_gbps": 4,
+        "hbm_latency_cycles": 3,
+        "buffering": "single"
+      },
+      "tile": [
+        16,
+        4,
+        32
+      ],
+      "order": "mnk",
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_capacity_double",
+      "experiment": "buffering",
+      "workload": "capacity_control",
+      "variant": "double",
+      "shape": [
+        16,
+        16,
+        32
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 4,
+        "cols": 4,
+        "precision": "INT8",
+        "capacity_bytes": 896,
+        "sram_gbps": 64,
+        "hbm_gbps": 4,
+        "hbm_latency_cycles": 3,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_262144_os_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 262144,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_262144_os_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 262144,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_262144_ws_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 262144,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_262144_ws_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 262144,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_1048576_os_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 1048576,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_1048576_os_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 1048576,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_1048576_ws_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 1048576,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_1048576_ws_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 1048576,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_8388608_os_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_8388608_os_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_8388608_ws_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_128_8388608_ws_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        128,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_262144_os_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 262144,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_262144_os_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 262144,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_262144_ws_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 262144,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_262144_ws_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 262144,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_1048576_os_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 1048576,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_1048576_os_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 1048576,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_1048576_ws_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 1048576,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_1048576_ws_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 1048576,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_8388608_os_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_8388608_os_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_8388608_ws_single",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "single",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "buffer_projection_512_8388608_ws_double",
+      "experiment": "buffering",
+      "workload": "attention_output",
+      "variant": "double",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "double"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_1_16_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 16,
+        "cols": 16,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_1_16_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 16,
+        "cols": 16,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_1_32_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 32,
+        "cols": 32,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_1_32_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 32,
+        "cols": 32,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_1_64_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_1_64_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_1_128_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 128,
+        "cols": 128,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_1_128_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        1,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 128,
+        "cols": 128,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_32_16_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 16,
+        "cols": 16,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_32_16_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 16,
+        "cols": 16,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_32_32_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 32,
+        "cols": 32,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_32_32_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 32,
+        "cols": 32,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_32_64_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_32_64_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_32_128_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 128,
+        "cols": 128,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_32_128_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        32,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 128,
+        "cols": 128,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_512_16_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 16,
+        "cols": 16,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_512_16_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 16,
+        "cols": 16,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_512_32_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 32,
+        "cols": 32,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_512_32_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 32,
+        "cols": 32,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_512_64_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_512_64_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_512_128_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 128,
+        "cols": 128,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_512_128_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        512,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 128,
+        "cols": 128,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_2048_16_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 16,
+        "cols": 16,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_2048_16_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 16,
+        "cols": 16,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_2048_32_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 32,
+        "cols": 32,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_2048_32_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 32,
+        "cols": 32,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_2048_64_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_2048_64_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 64,
+        "cols": 64,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_2048_128_os",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "os",
+      "hardware": {
+        "rows": 128,
+        "cols": 128,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    },
+    {
+      "identifier": "scaling_2048_128_ws",
+      "experiment": "scaling",
+      "workload": "attention_output",
+      "variant": "auto",
+      "shape": [
+        2048,
+        4096,
+        4096
+      ],
+      "dataflow": "ws",
+      "hardware": {
+        "rows": 128,
+        "cols": 128,
+        "precision": "BF16",
+        "capacity_bytes": 8388608,
+        "sram_gbps": 2048,
+        "hbm_gbps": 64,
+        "hbm_latency_cycles": 200,
+        "buffering": "single"
+      },
+      "tile": null,
+      "order": null,
+      "phase": null,
+      "batch": null,
+      "sequence_length": null
+    }
+  ]
+}

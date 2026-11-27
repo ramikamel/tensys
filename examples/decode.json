@@ -1,0 +1,9 @@
+{
+  "layers": [
+    {"name": "fused_qkv", "m": 1, "n": 6144, "k": 4096, "phase": "decode", "batch": 1, "sequence_length": 1},
+    {"name": "attention_output", "m": 1, "n": 4096, "k": 4096, "phase": "decode", "batch": 1, "sequence_length": 1},
+    {"name": "ffn_gate", "m": 1, "n": 14336, "k": 4096, "phase": "decode", "batch": 1, "sequence_length": 1},
+    {"name": "ffn_up", "m": 1, "n": 14336, "k": 4096, "phase": "decode", "batch": 1, "sequence_length": 1},
+    {"name": "ffn_down", "m": 1, "n": 4096, "k": 14336, "phase": "decode", "batch": 1, "sequence_length": 1}
+  ]
+}

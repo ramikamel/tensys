@@ -1,0 +1,22 @@
+{
+  "array": {
+    "rows": 4,
+    "cols": 5,
+    "clock_ghz": 1,
+    "precision": "INT8",
+    "macs_per_pe_per_cycle": 1
+  },
+  "sram": {
+    "layout": "split",
+    "activation_bytes": 128,
+    "weight_bytes": 128,
+    "accumulator_bytes": 512,
+    "read_gbps": 64,
+    "write_gbps": 64
+  },
+  "hbm": {
+    "bandwidth_gbps": 4,
+    "latency_cycles": 3,
+    "buffering": "double"
+  }
+}
